@@ -1,3 +1,4 @@
+# For MIT competition submission.
 # StressView
 
 A stress monitoring system that combines ESP32-C3 hardware sensors with a web-based dashboard for real-time stress tracking and guided breathing exercises.
@@ -95,6 +96,4 @@ npm run dist:linux
 
 MIT License - see LICENSE file for details
 
-## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
