@@ -1,0 +1,57 @@
+{
+  "name": "stressview-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "StressView - Monitor and manage your stress levels",
+  "author": "StressView Team",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "build": "vite build",
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && cross-env NODE_ENV=development electron .\"",
+    "dist": "vite build && electron-builder --win --publish never",
+    "dist:linux": "vite build && electron-builder --linux appimage --publish never"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "@tailwindcss/vite": "^4.1.18",
+    "autoprefixer": "^10.4.23",
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.4.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.2.4",
+    "wait-on": "^9.0.3"
+  },
+  "dependencies": {
+    "apexcharts": "^5.3.6",
+    "idb": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.stressview.app",
+    "productName": "StressView",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icons/icon-256.png"
+    },
+    "linux": {
+      "target": "appimage",
+      "icon": "public/icons/icon-256.png",
+      "category": "Utility"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "StressView-Setup.exe"
+    }
+  }
+}
